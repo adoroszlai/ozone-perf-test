@@ -31,29 +31,18 @@ import static org.openjdk.jmh.runner.options.TimeValue.seconds;
 
 /**
  * Main class that executes a set of HDDS/Ozone benchmarks.
- * We purposefully don't use the runner and tools classes from Hadoop.
- * There are some name collisions with OpenJDK JMH package.
- * <p>
- * Hence, these classes do not use the Tool/Runner pattern of standard Hadoop
- * CLI.
  */
 @Command(name = "ozone genesis",
     description = "Tool for running ozone benchmarks",
     mixinStandardHelpOptions = true)
 public final class Genesis {
 
-  // After adding benchmark in genesis package add the benchmark name in the
-  // description for this option.
-  @Option(names = {"-b", "-benchmark", "--benchmark"},
+  @Option(names = {"-b", "--benchmark"},
       split = ",", description =
-      "Option used for specifying benchmarks to run.\n"
-          + "Ex. ozone genesis -benchmark BenchMarkContainerStateMap,"
-          + "Possible benchmarks which can be used are "
-          + "{BenchMarkContainerStateMap, "
-          + "BenchMarkOMClient, "
-          + "BenchMarkSCM, BenchMarkMetadataStoreReads, "
-          + "BenchMarkMetadataStoreWrites, BenchMarkDatanodeDispatcher, "
-          + "BenchMarkRocksDbStore, BenchMarkCRCStreaming, BenchMarkCRCBatch}")
+      "Specify benchmarks to run.\n"
+          + "Example: ozone genesis -b BenchMarkCRCBatch\n"
+          + "Available benchmarks can be found in "
+          + "src/main/java/org/apache/hadoop/ozone/genesis/")
   private static String[] benchmarks;
 
   @Option(names = "-t", defaultValue = "4",
