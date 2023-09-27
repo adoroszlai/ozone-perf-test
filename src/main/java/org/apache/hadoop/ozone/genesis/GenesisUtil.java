@@ -133,7 +133,7 @@ public final class GenesisUtil {
           Pipeline.newBuilder()
               .setState(Pipeline.PipelineState.OPEN)
               .setId(PipelineID.randomId())
-              .setReplicationConfig(new RatisReplicationConfig(factor))
+              .setReplicationConfig(RatisReplicationConfig.getInstance(factor))
               .setNodes(nodes)
               .build();
       pipelineTable.put(pipeline.getId(),

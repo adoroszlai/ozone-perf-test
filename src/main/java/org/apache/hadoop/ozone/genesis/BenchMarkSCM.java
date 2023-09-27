@@ -88,7 +88,7 @@ public class BenchMarkSCM {
         PipelineManager pipelineManager = scm.getPipelineManager();
         for (Pipeline pipeline : pipelineManager
             .getPipelines(
-                new RatisReplicationConfig(ReplicationFactor.THREE))) {
+                RatisReplicationConfig.getInstance(ReplicationFactor.THREE))) {
           pipelineManager.openPipeline(pipeline.getId());
         }
         scm.getEventQueue().fireEvent(SCMEvents.SAFE_MODE_STATUS,
@@ -120,7 +120,7 @@ public class BenchMarkSCM {
   public void allocateBlockBenchMark(BenchMarkSCM state,
       Blackhole bh) throws IOException {
     BenchMarkSCM.blockManager
-        .allocateBlock(50, new RatisReplicationConfig(ReplicationFactor.THREE),
+        .allocateBlock(50, RatisReplicationConfig.getInstance(ReplicationFactor.THREE),
             "Genesis", new ExcludeList());
   }
 }

@@ -68,7 +68,7 @@ public class BenchMarkContainerStateMap {
         .setState(Pipeline.PipelineState.OPEN)
         .setId(PipelineID.randomId())
         .setReplicationConfig(
-            new StandaloneReplicationConfig(ReplicationFactor.ONE))
+            StandaloneReplicationConfig.getInstance(ReplicationFactor.ONE))
         .setNodes(dns)
         .build();
     return pipeline;
