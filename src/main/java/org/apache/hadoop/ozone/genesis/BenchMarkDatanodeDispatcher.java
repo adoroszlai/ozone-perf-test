@@ -102,7 +102,7 @@ public class BenchMarkDatanodeDispatcher {
     //We need 100 * container size minimum space
     conf.set("ozone.scm.container.size", "10MB");
 
-    ContainerSet containerSet = new ContainerSet();
+    ContainerSet containerSet = new ContainerSet(0);
     volumeSet = new MutableVolumeSet(datanodeUuid, conf, null,
         StorageVolume.VolumeType.DATA_VOLUME, null);
     StateContext context = new StateContext(
