@@ -1,0 +1,24 @@
+.DS_Store
+*.iml
+*.ipr
+*.iws
+*.orig
+*.rej
+**/.keep
+*.sdf
+*.suo
+*.vcxproj.user
+*.patch
+.idea
+.svn
+.classpath
+.project
+.settings
+*.factorypath
+target
+
+# External tool builders
+*/.externalToolBuilders
+*/maven-eclipse.xml
+
+.mvn
