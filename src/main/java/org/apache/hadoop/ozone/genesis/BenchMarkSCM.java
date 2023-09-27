@@ -20,6 +20,7 @@ package org.apache.hadoop.ozone.genesis;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.TimeoutException;
 import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.hadoop.fs.FileUtil;
@@ -118,7 +119,7 @@ public class BenchMarkSCM {
   @Threads(4)
   @Benchmark
   public void allocateBlockBenchMark(BenchMarkSCM state,
-      Blackhole bh) throws IOException {
+      Blackhole bh) throws IOException, TimeoutException {
     BenchMarkSCM.blockManager
         .allocateBlock(50, RatisReplicationConfig.getInstance(ReplicationFactor.THREE),
             "Genesis", new ExcludeList());
